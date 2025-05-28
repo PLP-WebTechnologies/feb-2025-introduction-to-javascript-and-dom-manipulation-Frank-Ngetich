@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript and DOM Manipulation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="main-title">Welcome to My Page</h1>
+  </header>
+
+  <section>
+    <p id="description">Click the button below to change this text and style!</p>
+    <button onclick="changeContent()">Change Text & Style</button>
+  </section>
+
+  <section>
+    <button onclick="toggleElement()">Add/Remove Extra Info</button>
+    <div id="extra-container"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 JavaScript Learners</p>
+  </footer>
+
+  <script>
+function changeContent() {
+  const desc = document.getElementById('description');
+  desc.textContent = 'Text has been changed dynamically using JavaScript!';
+  desc.style.color = 'green';
+  desc.style.fontWeight = 'bold';
+  desc.style.backgroundColor = '#f0f0f0';
+}
+
+function toggleElement() {
+  const container = document.getElementById('extra-container');
+  const existing = document.getElementById('extra-info');
+
+  if (existing) {
+    container.removeChild(existing);
+  } else {
+    const newElement = document.createElement('p');
+    newElement.id = 'extra-info';
+    newElement.textContent = 'This paragraph was added via JavaScript!';
+    container.appendChild(newElement);
+  }
+}
+
+</script>
+</body>
+</html>
